@@ -45,23 +45,8 @@ content_features = feature_extraction_model(content_input)[0]
 # Generate initial image for transfer and initialize with the content image
 initial_generated_image = tf.Variable(content_input, dtype=tf.float32)
 
-
-
 #np.random.uniform(-0.5, 0.5, size=(1, 224, 224, 3)) # add a batch dimension
 generated_image = tf.Variable(content_img, dtype=tf.float32)
-# Convert the tensor to a NumPy array
-generated_image_np = generated_image.numpy()[0]
-
-# Ensure values are in the valid range (0 to 255)
-#generated_image_np = np.clip(generated_image_np, 0, 255)
-
-# Convert to 'uint8' data type
-generated_image_np = generated_image_np.astype('uint8')
-
-# Display the image using Matplotlib
-plt.imshow(generated_image_np)
-plt.axis('off')  # Hide axes
-plt.show()
 
 #generate an initial image for transfer and initialize with the content image
 #generated_image = tf.Variable(tf.random.uniform(content_input.shape, -1, 1), dtype=tf.float32)
